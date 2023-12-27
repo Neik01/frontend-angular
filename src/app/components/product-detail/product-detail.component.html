@@ -1,0 +1,69 @@
+
+<div class="page_wrapper">
+    <app-header></app-header>
+    <div id="layoutSidenav">
+      <div id="layoutSidenav_nav">
+        <app-sidebar></app-sidebar>
+      </div>
+  
+      <!--main content-->
+      <div id="layoutSidenav_content">
+        <main>
+            <h2>Thông tin sản phẩm</h2>
+            <section class="py-5">
+                <div class="container ">
+                    
+                        <div class="product-img col p-5">
+                            <div class="feature">
+                                <img class="main-img" src={{product.imgLinks[0]}} width="90%"  id="main-img" alt="..."/>
+                            </div>
+                            
+                           
+                            <div class="small-img-group">
+                                <i class="bi bi-arrow-left-circle-fill" id="left-arrow" onclick="leftArrowClick()"></i>
+                                <div class="small-img-col" id="small-img-col">
+                                    
+                                    <img  *ngFor="let imglink of product.imgLinks" src={{imglink}} class="small-img" (click)="changeImage(imglink)">
+                                </div>
+                                <i class="bi bi-arrow-right-circle-fill" id="right-arrow" onclick="rightArrowClick()"></i>
+                            </div>
+                        </div>
+            
+                        <div class="product-details col">
+                            
+                            <h1 class="display-5 fw-bolder">{{product.name}}</h1>
+                            <div class="fs-5 mb-5">
+                                
+                                <span class="product-price">{{product.price|currency:"VND":"symbol":"0.0-0":"vi"}}</span>
+                            </div>
+                            <div class="d-flex">
+                                
+                                <button class="btn btn-outline-danger " type="button" (click)="btnBuyClick()">
+                                    <i class="bi-cart-fill me-1"></i>
+                                    Mua ngay
+                                </button>
+                            </div>
+            
+                            <p style="margin-top: 10%;">Thông số kỹ thuật </p>
+                            <div class="table-responsive">
+                                <table class="table table-striped table-bordered ">
+                                    <tbody>
+                                        <tr *ngFor="let spec of product.specifications|keyvalue:returnZero">
+                                            <th>{{spec.key}}</th>
+                                            <td>{{spec.value}}</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                            
+                           
+                        </div>
+                    </div>
+            
+            </section>
+        </main>
+      </div>
+    </div>
+  
+    
+  </div>

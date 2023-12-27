@@ -1,0 +1,5 @@
+<div class="input-group"  >
+    <input class="form-control" type="text" placeholder="Tìm kiếm..." #myInput type="text" 
+    (keyup.enter)="doSearch(myInput.value)" />
+    <button class="btn btn-secondary" id="btnNavbarSearch" (click)="doSearch(myInput.value)"><i class="fas fa-search"></i></button>
+</div>

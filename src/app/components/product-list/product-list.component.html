@@ -1,0 +1,49 @@
+
+<div class="page_wrapper">
+    <app-header></app-header>
+    <div id="layoutSidenav">
+      <div id="layoutSidenav_nav">
+        <app-sidebar></app-sidebar>
+      </div>
+      
+      <!--main content-->
+      <div id="layoutSidenav_content">
+        
+        <main>
+            <div id="product-list">
+              <h1 id="product-list-label">Danh sách sản phẩm</h1>
+            </div>
+            
+            <div class="grid-container">
+                <div class="grid-item col-sm-3" *ngFor="let product of data|paginate: config" >
+                    <a [routerLink]="['/product',product._id]" >
+                        <img src={{product.imgLinks[0]}} alt="Hình ảnh sản pshẩm" />
+                    </a>
+                    <a [routerLink]="['/product',product._id]">
+                        <h3>{{ product.name }}</h3>
+                    </a>
+                    
+                    <p class="product-price">Giá: {{ product.price |currency:"VND":"symbol":"0.0-0":"vi"}}</p>
+                    
+                </div>
+                
+            </div>
+            <div style="text-align: right;">
+              <pagination-controls 
+              [directionLinks]="true"
+              
+              [responsive]="true"
+              [previousLabel]="labels.previousLabel"
+              [nextLabel]="labels.nextLabel"
+              [screenReaderPaginationLabel]="labels.screenReaderPaginationLabel"
+              [screenReaderPageLabel]="labels.screenReaderPageLabel"
+              [screenReaderCurrentLabel]="labels.screenReaderCurrentLabel"
+              (pageChange)="onPageChange($event)"
+            ></pagination-controls>
+          </div>
+        </main>
+      </div>
+    </div>
+  
+    
+  </div>

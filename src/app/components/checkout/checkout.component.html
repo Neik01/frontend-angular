@@ -1,0 +1,53 @@
+
+<div class="page_wrapper">
+    <app-header></app-header>
+    <div id="layoutSidenav">
+      <div id="layoutSidenav_nav">
+        <app-sidebar></app-sidebar>
+      </div>
+  
+      <!--main content-->
+      <div id="layoutSidenav_content">
+        <main>
+            <div class="container">
+                <div class="row justify-content-center">
+                    <div class="col-lg-8">
+                        <div class="card shadow-lg border-0 rounded-lg mt-5">
+                            <div class="card-header">
+                                <h3 class="text-center font-weight-light my-4">Thanh toán</h3>
+                            </div>
+                            <form [formGroup]="orderInfoForm" (ngSubmit)="onFormSubmit()">
+                            <div class="card-body">
+                                
+                                    <div class="form-floating mb-3">
+                                        <input class="form-control" id="inputName" type="text" formControlName="name"/>
+                                        <label for="inputName">Họ và tên</label>
+                                    </div>
+                                    <div class="form-floating mb-3">
+                                        <input class="form-control" id="inputAddress" type="text"  formControlName="address"/>
+                                        <label for="inputAddress">Địa chỉ</label>
+                                    </div>
+                                    
+                                    <div class="form-floating mb-3">
+                                        <input class="form-control" id="inputPhone" type="text"  formControlName="phone"/>
+                                        <label for="inputPhone">Số điện thoại</label>
+                                    </div>
+                                
+                        
+                            </div>
+                            <div class="card-footer text-center py-3">
+                                <button  class="btn btn-primary btn-large" type="submit">Xác nhận</button>
+                            </div> 
+                        </form> 
+                        </div>
+                    </div>
+                         
+                </div>
+            </div>
+            
+        </main>
+      </div>
+    </div>
+  
+    
+  </div>

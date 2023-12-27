@@ -1,0 +1,79 @@
+
+<div class="page_wrapper">
+    <app-header></app-header>
+    <div id="layoutSidenav">
+      <div id="layoutSidenav_nav">
+        <app-sidebar></app-sidebar>
+      </div>
+  
+      <!--main content-->
+      <div id="layoutSidenav_content">
+        <main>
+            <div class="container">
+                <div class="row justify-content-center">
+                    <div class="col-lg-8">
+                        <div class="card shadow-lg border-0 rounded-lg mt-5">
+                            <div class="card-header">
+                                <h3 class="text-center my-4">Giỏ hàng của bạn</h3>
+                            </div>
+                            <div *ngIf="cart.size>0; else emptyCart">      
+                                <div class="card-body">
+                                    <div class="items">
+                                        <div class="item-information" *ngFor="let cartItem of cart|keyvalue">
+                                            <div class="col-md-4 image">
+                                                <img src={{cartItem.value.product.imgLinks[0]}}/>
+                                            </div>
+                                            <div class="col-md-6 name-price "> 
+                                                <h3>{{cartItem.value.product.name}}</h3>
+                                                <span class="product-price">{{cartItem.value.product.price|currency:"VND":"symbol":"0.0-0":"vi"}}</span>
+                                            </div>
+                                
+                                            <div class="col-md-2 edit-quantity">
+                                                <div class="quantity">
+                                                    <button class="minus" (click)="minusBtnClick(cartItem.value)">-</button>
+                                                    <span class="number">{{cartItem.value.quantity}}</span>
+                                                    <button class="plus" (click)="plusBtnClick(cartItem.value)">+</button>
+                                            </div>
+                                                
+                
+                                                <div class="delete-item">
+                                                    <button class="btn btn-outline-danger" (click)="deleteItem(cartItem.value)">Xoá</button>
+                                                </div>
+                                            </div>
+                                        
+                                        </div>
+                
+                                        <div class="total">
+                                            <h5 class="col-9 total-label" >Tổng cộng: </h5>
+                                            <h5 class="col-3 total-price text-end">{{totalPrice|currency:"VND":"symbol":"0.0-0":"vi"}}</h5>
+                                        </div>
+                                    </div>
+
+                                    
+                                </div>
+                                <div class="card-footer text-center py-3">
+                                    <a routerLink="/checkout" class="btn btn-primary btn-large" >Xác nhận và thanh toán</a>
+                                </div>  
+                            </div>
+                            <ng-template class="card-body" #emptyCart>
+                                <div  id="empty-cart">
+                                    <h3 >Giỏ hàng của bạn đang trống</h3>
+                                    
+                                </div>
+
+                                <div class="card-footer text-center py-3">
+                                    <a routerLink="/" class="btn btn-primary btn-large" >Đi mua sắm nào</a>
+                                </div>  
+                            </ng-template>
+                        </div>
+                    </div>
+                         
+                </div>
+            </div>
+            
+        </main>
+      </div>
+    </div>
+  
+    
+  </div>

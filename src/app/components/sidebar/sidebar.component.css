@@ -1,0 +1,32 @@
+
+nav {
+    background-color: #f27844;
+}
+
+#homeButton, #sidebarToggle, #cartButton,#navbarDropdown{
+    position: relative;
+    font-size: 24px;
+    color: rgba(255, 255, 255, 0.5);
+    font-weight: 500;
+}
+
+.header-right{
+    float: right;
+    display: inline-flex;
+    right: 10px;
+    position: absolute;
+    align-content: center;
+    align-self: center;
+}
+
+#cartButton{
+    margin-right: 3px;
+}
+.sb-sidenav-menu{
+    background-color: #f2e8e4;
+    
+}
+.nav-link {
+    color: black;
+}
+ 

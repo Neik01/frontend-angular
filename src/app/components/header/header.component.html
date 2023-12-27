@@ -1,0 +1,55 @@
+<nav class="sb-topnav navbar navbar-expand">
+    <!-- Navbar Brand-->
+    
+    <a
+      class="btn btn-link btn-sm order-1 order-lg-0 me-4 me-lg-0 mx-3"
+      routerLink="/"
+      id="homeButton"
+    >
+    <i class="bi bi-house"></i>
+  </a>
+    <!--Navbar toogle-->
+    <button
+      class="btn btn-link btn-sm order-1 order-lg-0 me-4 me-lg-0"
+      id="sidebarToggle"
+      href="#!"
+    >
+      <i class="fas fa-bars"></i>
+    </button>
+   <div class="header-right">
+
+    <app-search
+      class="d-md-inline-block form-inline ms-auto me-0 me-md-3 my-2 my-md-0"
+    ></app-search>
+    
+    <a class="btn btn-link btn-sm " id="cartButton" routerLink="/cart">
+      <i class="bi bi-cart4"></i>
+    </a>
+
+    
+    <ul class="navbar-nav ms-auto ms-md-0 me-3 me-lg-4">
+      <li class="nav-item dropdown">
+        <button
+          class="dropdown-toggle btn btn-link btn-sm"
+          id="navbarDropdown"
+          data-bs-toggle="dropdown"
+          ><i class="fas fa-user fa-fw"></i
+        ></button>
+        <ul
+          class="dropdown-menu dropdown-menu-end"
+          aria-labelledby="navbarDropdown"
+        >
+          <li><button class="dropdown-item"  (click)="showLoginModal()" *ngIf="!isAuthenticated">Đăng nhập</button></li>
+          <li><a class="dropdown-item"(click)="showRegisModal()" *ngIf="!isAuthenticated">Đăng ký</a></li>
+          <li><a class="dropdown-item" (click)="showOrderHistory()"  *ngIf="isAuthenticated">Lịch sử mua hàng</a></li>
+          
+          <li><hr class="dropdown-divider" *ngIf="isAuthenticated"/></li>
+          <li><button class="dropdown-item" *ngIf="isAuthenticated" (click)="logout()">Đăng xuất</button></li>
+          
+        </ul>
+      </li>
+    </ul>
+  </div>
+    <!-- Navbar-->
+    
+  </nav>
